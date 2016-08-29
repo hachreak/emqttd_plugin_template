@@ -1,0 +1,11 @@
+app:
+  build: .
+  command: /src/start.sh
+  volumes:
+    - .:/var/www:rw
+  volumes:
+    - .:/src/emqttd/rel/emqttd/plugins/emqttd_plugin_template
+  ports:
+    - "8083:8083"
+    - "1883:1883"
+    - "18083:18083"

@@ -17,7 +17,7 @@
 %% @doc emqttd plugin template
 -module(emqttd_plugin_template).
 
--include("../../../include/emqttd.hrl").
+-include_lib("emqttd/include/emqttd.hrl").
 
 -export([load/1, unload/0]).
 
@@ -51,11 +51,11 @@ on_client_disconnected(Reason, ClientId, _Env) ->
 on_client_subscribe(ClientId, TopicTable, _Env) ->
     io:format("client ~s will subscribe ~p~n", [ClientId, TopicTable]),
     {ok, TopicTable}.
-   
+
 on_client_subscribe_after(ClientId, TopicTable, _Env) ->
     io:format("client ~s subscribed ~p~n", [ClientId, TopicTable]),
     {ok, TopicTable}.
-    
+
 on_client_unsubscribe(ClientId, Topics, _Env) ->
     io:format("client ~s unsubscribe ~p~n", [ClientId, Topics]),
     {ok, Topics}.
